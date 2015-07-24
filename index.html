@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="megaVideoExample">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    video{
+      object-fit: inherit;
+      object-position: center;
+    }
+  </style>
+</head>
+<body>
+<mega-video
+    height="400"
+    width= "630"
+    sources="{ogg: 'small.ogv', mp4: 'small.mp4'}"
+    >
+</mega-video>
+
+
+<script type="text/ng-template" id="megaVideo.html">
+  <video width="{{width}}" height="{{height}}">
+    <source
+        ng-repeat="(type, source) in sources"
+        ng-src="{{source}}"
+        type="video/{{type}}">
+  </video>
+</script>
+<script src="angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
